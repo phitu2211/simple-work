@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Simple work</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container" id="container">
+			<div class="header">
+				<ul>
+					<li>
+						<a href="/index.html">IBSK1D1</a>
+						<a href="/ibsk2d1.html">IBSK2D1</a>
+					</li>
+				</ul>
+			</div>
+			<div class="tab" id="tab"></div>
+			<div id="tabContent"></div>
+		</div>
+		<script src="main.js"></script>
+		<script type="module">
+			import classTwo from './classTwo.json' assert { type: 'json' };
+
+			var i = 0;
+			var tab = document.getElementById('tab');
+			var tabContent = document.getElementById('tabContent');
+			for (const mem of classTwo) {
+				var button = document.createElement('button');
+				button.className = 'tablinks';
+				button.id = i == 0 ? 'default' : '';
+				button.dataset.id = i;
+				button.dataset.teacherReview = mem.teacherReview;
+				button.dataset.reportWeekUrl = mem.reportWeekUrl;
+				button.textContent = mem.name;
+				button.addEventListener('click', openTab);
+				tab.append(button);
+
+				var div = document.createElement('div');
+				div.id = i;
+				div.classList.add('tab-content');
+				div.style.display = 'none';
+				tabContent.append(div);
+				i++;
+			}
+			document.addEventListener('readystatechange', (event) => {
+				document.getElementById('default').click();
+			});
+		</script>
+	</body>
+</html>
