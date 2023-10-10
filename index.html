@@ -11,13 +11,45 @@
 			<div class="header">
 				<ul>
 					<li>
-						<a href="/index.html">IBSK1D1</a>
-						<a href="/ibsk2d1.html">IBSK2D1</a>
+						<a href="index.html">IBSK1D1</a>
+						<a href="ibsk2d1.html">IBSK2D1</a>
 					</li>
 				</ul>
 			</div>
-			<div class="tab" id="tab"></div>
-			<div id="tabContent"></div>
+			<div class="tab" id="tab">
+				<div>
+					<button
+						class="tablinks"
+						data-id="teacherReportWeek"
+						onclick="openTab(event)"
+						data-url="https://docs.google.com/spreadsheets/d/1CvDU9JmQNpAqlJRrX8WpL2TDLQsRW5pC/edit"
+					>
+						Báo cáo tuần
+					</button>
+					<button
+						class="tablinks"
+						data-id="checkin"
+						onclick="openTab(event)"
+						data-url="https://docs.google.com/spreadsheets/d/1KL4L9N9-jbYIbw8jZueVBb2GcyPQlYKghomlF96foGw/edit#gid=1574092354"
+					>
+						Điểm danh
+					</button>
+					<button
+						class="tablinks"
+						data-id="manager"
+						data-url="https://docs.google.com/spreadsheets/d/1ieryd2L0huislaeaDJlYj2_3ozBBjmPo/edit"
+						id="default"
+						onclick="openTab(event)"
+					>
+						Quản lý lớp
+					</button>
+				</div>
+			</div>
+			<div id="tabContent">
+				<div id="teacherReportWeek" class="tab-content"></div>
+				<div id="checkin" class="tab-content"></div>
+				<div id="manager" class="tab-content"></div>
+			</div>
 		</div>
 		<script src="main.js"></script>
 		<script type="module">
@@ -29,7 +61,7 @@
 			for (const mem of classOne) {
 				var button = document.createElement('button');
 				button.className = 'tablinks';
-				button.id = i == 0 ? 'default' : '';
+				// button.id = i == 0 ? 'default' : '';
 				button.dataset.id = i;
 				button.dataset.reportWeekUrl = mem.reportWeekUrl;
 				button.dataset.teacherReview = mem.teacherReview;

@@ -10,21 +10,29 @@ function openTab(e) {
 	document.getElementById(e.currentTarget.dataset.id).style.display = 'block';
 
 	if (!document.getElementById(e.currentTarget.dataset.id).hasChildNodes()) {
-		var iframe = document.createElement('iframe');
-		iframe.src = e.currentTarget.dataset.reportWeekUrl + '?rm=minimal';
-		iframe.width = '50%';
-		iframe.height = '100%';
-		iframe.frameBorder = 0;
-		document.getElementById(e.currentTarget.dataset.id).append(iframe);
+		if (e.currentTarget.dataset.url) {
+			var iframe = document.createElement('iframe');
+			iframe.src = e.currentTarget.dataset.url + '?rm=minimal';
+			iframe.width = '100%';
+			iframe.height = '100%';
+			iframe.frameBorder = 0;
+			document.getElementById(e.currentTarget.dataset.id).append(iframe);
+		} else {
+			var iframe = document.createElement('iframe');
+			iframe.src = e.currentTarget.dataset.reportWeekUrl + '?rm=minimal';
+			iframe.width = '50%';
+			iframe.height = '100%';
+			iframe.frameBorder = 0;
+			document.getElementById(e.currentTarget.dataset.id).append(iframe);
 
-		console.log(e.currentTarget.dataset.teacherReview);
-		if (e.currentTarget.dataset.teacherReview !== 'undefined') {
-			var iframe2 = document.createElement('iframe');
-			iframe2.src = e.currentTarget.dataset.teacherReview + '?rm=minimal';
-			iframe2.width = '50%';
-			iframe2.height = '100%';
-			iframe2.frameBorder = 0;
-			document.getElementById(e.currentTarget.dataset.id).append(iframe2);
+			if (e.currentTarget.dataset.teacherReview !== 'undefined') {
+				var iframe2 = document.createElement('iframe');
+				iframe2.src = e.currentTarget.dataset.teacherReview + '?rm=minimal';
+				iframe2.width = '50%';
+				iframe2.height = '100%';
+				iframe2.frameBorder = 0;
+				document.getElementById(e.currentTarget.dataset.id).append(iframe2);
+			}
 		}
 	}
 
