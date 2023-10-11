@@ -15,7 +15,10 @@
 						<a href="ibsk2d1.html"><i>IBSK2D1</i></a>
 					</li>
 				</ul>
-				<button onclick="reload(event)">Reload</button>
+				<div>
+					<button onclick="reload(event)">Reload</button>
+					<button onclick="copyLink(event)">Copy url</button>
+				</div>
 			</div>
 			<div class="tab" id="tab">
 				<div>
@@ -44,6 +47,14 @@
 					>
 						Quản lý lớp
 					</button>
+					<button
+						class="tablinks"
+						data-id="classReport"
+						data-url="https://docs.google.com/spreadsheets/d/1dEbdgfZ96RTZAx9d17Gr9K9emwdkSPDOO-0pt6k5ezk/edit"
+						onclick="openTab(event)"
+					>
+						Báo cáo tuần lớp
+					</button>
 					<a
 						style="display: block; text-align: center"
 						href="https://drive.google.com/drive/folders/1gU1ntCO3tbfx5UOGChjol8t4dXlHE7wm?usp=drive_link"
@@ -57,6 +68,7 @@
 				<div id="teacherReportWeek" class="tab-content"></div>
 				<div id="checkin" class="tab-content"></div>
 				<div id="manager" class="tab-content"></div>
+				<div id="classReport" class="tab-content"></div>
 			</div>
 		</div>
 		<script src="main.js"></script>

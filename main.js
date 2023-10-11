@@ -44,3 +44,12 @@ function reload(e) {
 	document.getElementById(button.getAttribute('data-id')).innerHTML = '';
 	button.click();
 }
+
+function copyLink(e) {
+	var button = document.querySelector('button.active');
+	var src = document
+		.getElementById(button.getAttribute('data-id'))
+		.querySelector('iframe')
+		.getAttribute('src');
+	navigator.clipboard.writeText(src.replace('?rm=minimal', ''));
+}
