@@ -38,3 +38,9 @@ function openTab(e) {
 
 	e.currentTarget.className += ' active';
 }
+
+function reload(e) {
+	var button = document.querySelector('button.active');
+	document.getElementById(button.getAttribute('data-id')).innerHTML = '';
+	button.click();
+}
