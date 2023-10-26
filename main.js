@@ -23,12 +23,13 @@ function openTab(e) {
 			iframe.width = '50%';
 			iframe.height = '100%';
 			iframe.frameBorder = 0;
-			document.getElementById(e.currentTarget.dataset.id).append(iframe);
+			if (!window.onlyReview)
+				document.getElementById(e.currentTarget.dataset.id).append(iframe);
 
 			if (e.currentTarget.dataset.teacherReview !== 'undefined') {
 				var iframe2 = document.createElement('iframe');
 				iframe2.src = e.currentTarget.dataset.teacherReview + '?rm=minimal';
-				iframe2.width = '50%';
+				iframe2.width = window.onlyReview ? '100%' : '50%';
 				iframe2.height = '100%';
 				iframe2.frameBorder = 0;
 				document.getElementById(e.currentTarget.dataset.id).append(iframe2);
